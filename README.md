@@ -30,8 +30,7 @@ This widget is really useful! Both developers of this tool have very untidy
 desktops but since this widget has been installed our desktops are utterly tidy. 
 It is genuinely useful.
 
-![deephole](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/b5b62db0-14bb-45a3-ad34-d8d6c50241cd)
-
+![there's-a-hole-in-my-desktop](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/569ec324-5a25-43c8-bcc8-91aa8d0dd09a)
 
 Right clicking will bring up a menu of options. Double-clicking on the widget will cause a personalised Windows application to 
 fire up. The first time you run it there will be no assigned function and so it 
