@@ -30,6 +30,9 @@ This widget is really useful! Both developers of this tool have very untidy
 desktops but since this widget has been installed our desktops are utterly tidy. 
 It is genuinely useful.
 
+![deephole](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/b5b62db0-14bb-45a3-ad34-d8d6c50241cd)
+
+
 Right clicking will bring up a menu of options. Double-clicking on the widget will cause a personalised Windows application to 
 fire up. The first time you run it there will be no assigned function and so it 
 will state as such and then pop up the preferences so that you can enter the 
@@ -121,4 +124,7 @@ Tested on :
  original artist using my name or one of my pseudonyms and a link to my site.
  With regard to the commercial use of incorporated images, permission and a
  licence would need to be obtained from the original owner and creator, ie. me.
+
+ ![steampunk-desktop-hole01](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/8f6284f3-6621-4f40-a700-1d8fce183c8c)
+
  
