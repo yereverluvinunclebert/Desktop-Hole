@@ -3,11 +3,15 @@
 Steampunk Desktop-Hole widget, written in Javascript and XML for the Yahoo 
 Widget (Konfabulator) Engine. Created for XP, Vista, Win7, 8, 10+ as well as the 
 Apple Mac.
- 
+
+ ![hole-icon](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/66358dd1-a67e-429e-9a90-2b34948d3b58)
+
 This widget is an attractive steampunk Yahoo widget for your desktop. This 
 widget is a hole in your screen (burnt by the Martians) that can be moved around 
 the desktop and placed where you like. It sits underneath all other widgets and 
 other desktop items exposing the inner workings of your broken screen. 
+
+![steampunk_hole_desktop_tidy_tool_by_yereverluvinuncleber-dbx](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/2c802966-c4e8-48d7-9859-1e9256999b31)
 
 If you drop any desktop item (shortcuts, files, documents &c) it will 
 automatically place those into the appropriate folder, for example .doc files 
@@ -105,7 +109,7 @@ Tested on :
  menubar item should appear. Widgets can then be started from the menubar or by 
  double-clicking on the KON file in the usual way.
  
- ![aboutus](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/a39bfd44-1f95-4800-a591-e68684ab5d42)
+![desktop-hole-help](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/834ced3c-ce22-4345-9fab-acb215a14aa8)
 
  LICENCE AGREEMENTS:
  
