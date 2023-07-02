@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <!--name>Desktop Hole</name-->
+    <version>1.0</version>
+    <author name = "Dean Beedell" />
+    <platform minVersion = "4.5" />
+    <description>Provides a hole in your desktop. Drop your desktop files here to reorganise and keep your desktop clear.</description>
+    <image usage="dock" src="Resources/hole-dock.png" />
+    <image usage="security" src="Resources/security.png"/>
+    <security>
+        <filesystem>full</filesystem>
+        <http>all</http>
+        <applescript>true</applescript>
+        <command>true</command>
+        <hotkey>true</hotkey>
+    </security>
+</metadata>

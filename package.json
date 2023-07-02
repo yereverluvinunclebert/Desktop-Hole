@@ -1,0 +1,8 @@
+{
+  "name": "Desktop Hole",
+  "main": "Desktop Hole.html",
+  "window": {
+  	"frame": false,
+  	"transparent": true
+  }
+}

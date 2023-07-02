@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget minimumVersion="4.5">
+    <!--
+        Desktop Hole Widget 1.0
+        Written and Steampunked by Dean Beedell
+        Vitality code, Mac compatibility, advice and patience from Harry Whitfield
+        Dean.beedell@lightquick.co.uk
+    -->
+
+    <settings>
+        <setting name="allowCustomObjectAttributes" value="true"/>
+        <!--setting name="defaultTracking" value="rectangle"/-->
+        <setting name="debug" value="off"/>
+    </settings>
+
+    <about-box>
+        <image>Resources/About.png</image>
+        <about-text font="Times New Roman" size="12" style="Italic,Bold" hOffset="45" vOffset="241"
+            color="#000000" data="The designers, Messrs Beedell and Whitfield state:"
+            url="mailto:g6auc@arrl.net"/>
+        <about-text font="Times New Roman" size="10" style="Regular" hOffset="101" vOffset="340"
+            color="#000000" data="Licence code by Ricky Romero"/>
+    </about-box>
+
+    <window
+        title       = "Desktop Hole"
+        name        = "mainWindow"
+        width       = "0 "
+        height      = "0 "
+        visible     = "true"
+        shadow      = "false"
+        opacity     = "255"
+    >
+        <!--height and width set to zero to stop the initial appearance/-->
+	<image
+            src			= "Resources/bottomHelp.png"
+	    name		= "bottomHelp"
+    	    opacity		= "255"
+            visible		= "false"
+	/>
+
+        <image
+            src         = "Resources/deephole.png"
+            name        = "deephole"
+            hOffset     = "1 "
+            vOffset     = "1 "
+            opacity     = "255"
+            tracking    = "rectangle"
+        />
+        <image
+            src         = "Resources/deepholebright.png"
+            name        = "deepholebright"
+            hOffset     = "1 "
+            vOffset     = "1 "
+            opacity     = "0"
+        />
+
+        <image
+            src         = "Resources/pinArea.png"
+            name        = "pinArea"
+            opacity     = "255"
+        />
+
+        <image
+            src         = "Resources/deepglass.png"
+            name        = "deepglass"
+            hOffset     = "1 "
+            vOffset     = "1 "
+            opacity     = "255"
+            visible     = "false"
+        />
+
+        <text visible="false" style="text-align:center" height="60" opacity="255" color="#FFFFFF" vOffset="315" name="text1" width="225" style="font-family: &apos;Courier new&apos;; font-size: 10px" hOffset="105" scrolling = "left" data="Shortcut moved to shortcuts folder:"/>
+        <text visible="false" style="text-align:center" height="60" opacity="255" color="#000000" vOffset="318" name="text2" width="225" style="font-family: &apos;Courier new&apos;; font-size: 10px" hOffset="108" scrolling = "left" data="Shortcut moved to shortcuts folder:"/>
+
+        <image
+            src         = "Resources/rust01.png"
+            name        = "rust01"
+            hOffset     = "95 "
+            vOffset     = "260 "
+            opacity     = "255"
+        />
+
+        <image
+            src         = "Resources/rust02.png"
+            name        = "rust02"
+            hOffset     = "130 "
+            vOffset     = "260 "
+            opacity     = "255"
+        />
+
+        <image
+            src         = "Resources/burns.png"
+            name        = "burns"
+            opacity     = "255"
+        />
+
+        <image
+            src         = "Resources/cracks.png"
+            name        = "cracks"
+            hOffset     = "29 "
+            vOffset     = "10 "
+            opacity     = "0"
+        />
+
+        <image
+            src         = "Resources/shadow.png"
+            name        = "shadow"
+            hOffset     = "238 "
+            vOffset     = "154 "
+            opacity     = "194"
+            hRegistrationPoint = "27.5"
+            vRegistrationPoint = "27.5"
+        />
+
+        <image
+            src         = "Resources/smallCog.png"
+            name        = "smallCog"
+            hOffset     = "242 "
+            vOffset     = "145 "
+            opacity     = "255"
+            hRegistrationPoint = "27.5"
+            vRegistrationPoint = "27.5"
+        />
+
+        <image
+            src         = "Resources/clamp.png"
+            name        = "clamp"
+            hOffset     = "238 "
+            vOffset     = "141 "
+            opacity     = "255"
+        />
+        <image
+            src         = "Resources/pin.png"
+            name        = "pin"
+            hOffset     = "130 "
+            vOffset     = "275 "
+            opacity     = "0"
+        />
+
+	<image
+              src		= "Resources/topLevelHelp.png"
+              name		= "topLevelHelp"
+	      hOffset		= "59 "
+  	      vOffset		= "119 "
+	      opacity		= "255"
+	      visible		= "false"
+	/>
+
+
+    </window>
+
+    <action trigger="onKeyDown">
+        <![CDATA[
+        if (system.event.keyCode === 116) {
+            hprint("%KON-I-INFO, pressing F5 " + system.event.keyCode);
+            reloadWidget();
+        }
+        ]]>
+    </action>
+
+    <action trigger="onload">
+        <![CDATA[
+        include("Resources/Licence/Licence.js");
+        LICENCE.createLicence(mainWindow);      // create the licence window
+        startup();
+        ]]>
+    </action>
+
+    <action trigger="onPreferencesChanged">
+        <![CDATA[
+        changePrefs();
+        ]]>
+    </action>
+
+    <!-- Hidden Preferences -->
+    <prefGroup name="hole" order="1" icon="Resources/black-hole-icon.png" title="Desktop Hole"/>
+    <prefGroup name="sounds" order="3" icon="Resources/sound-icon.png" title="Sounds"/>
+    <prefGroup name="config" order="5" icon="Resources/config-icon.png" title="Configuration"/>
+    <prefGroup name="destinationPrefs" order="7" icon="Resources/folders-icon.png" title="Folder Destinations"/>
+    <prefGroup name="extensionPrefs" order="9" icon="Resources/files-icon.png" title="File Extensions"/>
+    <prefGroup name="definedPrefs" order="11" icon="Resources/users-icon.png" title="User Folders"/>
+ 	  <prefGroup name="development" order="13" icon="Resources/development-icon.png" title="Development"/>
+
+  <preference hidden="false" description="Turning on the debugging will provide extra information in the debug window. To obtain the debug window press SHIFT+CTRL simultaneously whilst right clicking on the Yahoo widget systray icon, then select debug from the drop down menu. You will need to restart the widget properly rather than doing a simple restart for debugging information to appear." name="debugflgPref" group="development" title="Debug:" defaultValue="1" type="popup">
+      <option>Debug OFF</option>
+      <optionValue>0</optionValue>
+      <option>Debug ON</option>
+      <optionValue>1</optionValue>
+  </preference>
+  
+  <preference hidden="true" description="Development ONLY: Enter your editor path here along with any command line switches required to open this widget in the editor. This function only operates if the widget has been unpacked and DEBUG is ON. " name="imageEditPref" group="development" title="Default Editor:" defaultValue="" type="text"/>
+
+    <preference hidden="true" description="Check this box if you don&apos;t want to see the Licence Conditions again." name="licenceHide" title="Don&apos;t Show Licence Again" defaultValue="0" type="checkbox"/>
+
+    <preference hidden="true" description="" name="pinhOffsetPref" title="String:" defaultValue="" type="text"/>
+    <preference hidden="true" description="" name="pinvOffsetPref" title="String:" defaultValue="" type="text"/>
+
+    <preference hidden="true" description="" name="widgetLockPref" title="Widget Locked:" defaultValue="0" type="popup">
+        <option>1</option>
+        <optionValue>1</optionValue>
+        <option>0</option>
+        <optionValue>0</optionValue>
+    </preference>
+
+    <preference hidden="true" description="Double-clicking on the widget image will run this command. An example command for Windows might be : control mmsys.cpl sounds " name="imageCmdPref" group="commands" title="Run Command:" defaultValue="control mmsys.cpl sounds" type="text"/>
+    <preference hidden="true" kind="files" description="Alt+double-clicking on the widget image will open this file. " name="openFilePref" group="commands" style="open" title="Open File" type="selector"/>
+
+    <preference hidden="true" description="You can change the name of the widget at any time to correspond to the name of the function you have assigned to it." name="widgetTooltip" title="Widget Tooltip:" type="text"/>
+
+    <!-- hole Preferences -->
+
+    <preference description="Enable or disable animation" name="animatePrefs" group="hole" title="Animate:" defaultValue="enabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+    <preference description="Enable or disable the burn marks" name="burnPrefs" group="hole" title="Burns:" defaultValue="enabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+   <preference description="Enable or disable the crack marks" name="crackPrefs" group="hole" title="Cracks:" defaultValue="enabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+
+   <preference description="Enable or disable the broken glass flashing" name="glassPrefs" group="hole" title="Glass:" defaultValue="enabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+   <preference description="Enable or disable the sparking flashes" name="sparkPrefs" group="hole" title="Sparking:" defaultValue="enabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+   <preference description="Enable or disable the cogwheel rotation" name="cogwheelPrefs" group="hole" title="Cog wheel rotation:" defaultValue="enabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+   <!-- Sounds Preferences -->
+
+    <preference description="This widget makes additional sounds by default - you can enable or disable these sounds as you require." name="soundpref" group="sounds" title="Sound Control:" defaultValue="enabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+   <!-- Configuration Preferences -->
+
+    <preference name="maxWidthPref" group="config" title="Widget Size" defaultValue="100" ticks="30" maxlength="150" minlength="5" type="slider"
+        description="Changes the total size of the widget. Vary the percentage and the whole widget will alter in size."
+        >
+        <ticklabel>5%</ticklabel>
+        <ticklabel>50%</ticklabel>
+        <ticklabel>100%</ticklabel>
+        <ticklabel>150%</ticklabel>
+    </preference>
+
+    <!--preference name="maxWidthPref" defaultValue="100" minlength="5" maxlength="150" group="config" title="Widget Size" type="popup"
+        defaultValue="100"
+        description="Changes the total size of the widget. Vary the percentage and the whole widget will alter in size.">
+        <option>150%</option>
+        <optionValue>150</optionValue>
+        <option>140%</option>
+        <optionValue>140</optionValue>
+        <option>130%</option>
+        <optionValue>130</optionValue>
+        <option>120%</option>
+        <optionValue>120</optionValue>
+        <option>110%</option>
+        <optionValue>110</optionValue>
+        <option>100%</option>
+        <optionValue>100</optionValue>
+        <option>90%</option>
+        <optionValue>90</optionValue>
+        <option>80%</option>
+        <optionValue>80</optionValue>
+        <option>70%</option>
+        <optionValue>70</optionValue>
+        <option>60%</option>
+        <optionValue>60</optionValue>
+        <option>50%</option>
+        <optionValue>50</optionValue>
+        <option>40%</option>
+        <optionValue>40</optionValue>
+        <option>30%</option>
+        <optionValue>30</optionValue>
+        <option>20%</option>
+        <optionValue>20</optionValue>
+        <option>10%</option>
+        <optionValue>10</optionValue>
+        <option>5%</option>
+        <optionValue>5</optionValue>
+    </preference-->
+
+    <preference hidden="false"
+        name="mouseWheelPref" group="config" title="Resizing Mouse Wheel Direction" defaultValue="up" type="popup"
+        description="This changes the direction of the mousewheel when used to control the resizing effect (CTRL+Mousewheel)."
+    >
+        <option>up</option>
+        <option>down</option>
+    </preference>
+
+    <preference hidden="false" group="config" name="desktopIniPref" title="Make desktop.ini files" defaultValue="0" type="checkbox"
+        description="Check this box if you want the widget to make desktop.ini files in the destination folders. Essential for opening folders using the menu."/>
+
+    <preference hidden="false" description="Widget default horizontal screen position (in pixels)." name="hoffsetpref" group="config" title="Hoffset/Left X pos" type="text"/>
+    <preference hidden="false" description="Widget default vertical screen position, leave both at zero for automatic placement." name="voffsetpref" group="config" title="Voffset/Top Y pos" type="text"/>
+
+    <preference description="Enable or disable the optional menu items that connect to web services" name="menuPrefs" group="config" title="Menu items:" defaultValue="disabled" type="popup">
+        <option>enabled</option>
+        <optionValue>enabled</optionValue>
+        <option>disabled</option>
+        <optionValue>disable</optionValue>
+    </preference>
+
+    <!-- Folder Destinations Preferences -->
+
+    <preference name="documentFolder" title="Document Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the folder for documents." group="destinationPrefs"/>
+    <preference name="compressedFolder" title="Compressed File Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the folder for compressed files." group="destinationPrefs"/>
+    <preference name="movieFolder" title="Movie Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the folder for movie files." group="destinationPrefs"/>
+    <preference name="musicFolder" title="Music Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the folder for music files." group="destinationPrefs"/>
+    <preference name="pictureFolder" title="Picture Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the folder for picture files." group="destinationPrefs"/>
+    <preference name="otherFolder" title="Temporary Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the folder for other files." group="destinationPrefs"/>
+    <preference name="widgetFolder" title="Widget Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the folder for widget files." group="destinationPrefs"/>
+    <preference name="shortcutsFolder" title="Shortcuts Folder" type="selector" style="open" kind="folders" defaultValue="" description="Choose the desktop folder for shortcuts." group="destinationPrefs"/>
+
+    <!-- File Extensions Preferences -->
+
+    <preference hidden="false" name="documentExtns" title="Document Extensions:" type="text" group="extensionPrefs">
+        <description>Default document extensions are doc, docx, odt, rtf, rtfd, pdf, txt, htm, html, ppt, pptx and xml.
+
+You may append to the default lists of extensions by entering comma-separated lists of extensions into the text boxes.</description>
+    </preference>
+
+    <preference hidden="false" name="compressedExtns" title="Compressed File Extensions:" type="text" group="extensionPrefs"
+        description="Default compressed file extensions are zip, rar, arj, gz, tgz, hqx, sit, sitx and zipx."
+    />
+    <preference hidden="false" name="movieExtns" title="Movie Extensions:" type="text" group="extensionPrefs"
+        description="Default movie extensions are avi, asf, mov, mpeg, mp4, mpg, flv, swf, vob and wmv."
+    />
+    <preference hidden="false" name="musicExtns" title="Music Extensions:" type="text" group="extensionPrefs"
+        description="Default music extensions are m4a, mpg, mp3, aac, wav, wma, aif, aiff, au, snd, ogg and aac."
+    />
+    <preference hidden="false" name="pictureExtns" title="Picture Extensions:" type="text" group="extensionPrefs"
+        description="Default picture extensions are gif, jpg, jpeg, png, bmp, tif and tiff."
+    />
+     <preference hidden="false" name="otherExtns" title="Temporary File Extensions:" type="text" group="extensionPrefs"
+        description="There are no temporary file default extensions."
+    />
+   <preference hidden="false" name="widgetExtns" title="Widget Extensions:" type="text" group="extensionPrefs"
+        description="Default widget extensions are widget and wdgt."
+    />
+
+    <!-- User Folders Preferences -->
+
+
+    <preference name="userFolder1" title="User Defined Folder One:" type="selector" style="open" kind="folders" defaultValue="" description="Select a specific folder as your first user defined destination." group="definedPrefs"/>
+        <preference hidden="false" name="userFolder1Extns" title="Folder One Extensions:" type="text" group="definedPrefs">
+            <description>Enter extensions to use with folder one,
+eg. psd, json, dcl - extensions separated with a comma as shown.</description>
+    </preference>
+
+    <preference name="userFolder2" title="User Defined Folder Two:" type="selector" style="open" kind="folders" defaultValue="" description="Select your second destination folder." group="definedPrefs"/>
+        <preference hidden="false" name="userFolder2Extns" title="Folder Two Extensions:" type="text" group="definedPrefs"
+            description="Enter extensions to use with folder two."
+        />
+    <preference name="userFolder3" title="User Defined Folder Three:" type="selector" style="open" kind="folders" defaultValue="" description="Select your third destination folder." group="definedPrefs"/>
+        <preference hidden="false" name="userFolder3Extns" title="Folder Three Extensions:" type="text" group="definedPrefs"
+            description="Enter extensions to use with folder three."
+        />
+
+    <script src="vitality.js"/>
+    <script src="functions.js"/>
+    <script src="script.js"/>
+</widget>
