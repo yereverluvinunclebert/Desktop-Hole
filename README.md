@@ -20,6 +20,8 @@ file type then you can manually add that extension to the list and it will deal
 with them from that point on. It works on Windows 7, 8 and 10, Vista and Mac 
 OS/X High Sierra, (not tested on XP but it should work).
 
+![desktop-hole-help](https://github.com/yereverluvinunclebert/Desktop-Hole/assets/2788342/4a60563b-b608-4a49-b8d8-f4273967d0ad)
+
 You can customise the folders to point to any location you wish, you don't have 
 to use the Windows/Mac default folders if you don't want to.
 
